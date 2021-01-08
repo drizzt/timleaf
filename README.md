@@ -1,7 +1,7 @@
-# Tinleaf
+# Timleaf
 A No-Bullshit-No-Bullshit NSP, NSZ, XCI, and XCZ Installer for Nintendo Switch
 
-![Tinleaf Installer Main Menu](tinleaf.jpg)
+![Timleaf Installer Main Menu](timleaf.jpg)
 
 ## Features
 - Installs NSP/NSZ/XCI/XCZ files and split NSP/XCI files from your SD card

@@ -30,7 +30,7 @@
         },
         "applet": {
             "title": "Le mode Applet n'est pas compatible",
-            "desc": "Vous pouvez rencontrer des problèmes en utilisant Tinleaf Installer en mode Applet. Si vous \navez des problèmes, veuillez lancer Tinleaf en mode 'non-Applet'\n (Maintenez R pendant le démarrage d'un jeu)!"
+            "desc": "Vous pouvez rencontrer des problèmes en utilisant Timleaf Installer en mode Applet. Si vous \navez des problèmes, veuillez lancer Timleaf en mode 'non-Applet'\n (Maintenez R pendant le démarrage d'un jeu)!"
         },
         "buttons": "\ue0e0 Select    \ue0e1 Quitter"
     },
@@ -38,7 +38,7 @@
         "net": {
             "help": {
                 "title": "Aide",
-                "desc": "Les fichiers peuvent être installés à distance depuis vos autres périphériques à l'aide d'outils\ntels que NS-USBloader en mode Tinfoil. Pour envoyer des fichiers à votre Switch, ouvrez l'un\nde ces logiciels sur votre PC ou votre appareil mobile, entrez\nl'adresse IP de votre Switch (indiquée à l'écran), sélectionnez vos fichiers, puis téléchargez-les\nsur votre console ! Si le logiciel que vous utilisez ne vous permet pas de sélectionner des types de fichiers\nspécifiques, essayez de modifier l'extension en quelque chose qu'il accepte.\nTinleaf Installer ne se soucie pas des extensions de fichiers lors des installations via le net !\n\nSi vous n'arrivez pas à comprendre, copiez simplement vos fichiers sur votre carte SD et essayez\nl'option \"Installer à partir de la carte SD\" depuis le menu principal!"
+                "desc": "Les fichiers peuvent être installés à distance depuis vos autres périphériques à l'aide d'outils\ntels que NS-USBloader en mode Tinfoil. Pour envoyer des fichiers à votre Switch, ouvrez l'un\nde ces logiciels sur votre PC ou votre appareil mobile, entrez\nl'adresse IP de votre Switch (indiquée à l'écran), sélectionnez vos fichiers, puis téléchargez-les\nsur votre console ! Si le logiciel que vous utilisez ne vous permet pas de sélectionner des types de fichiers\nspécifiques, essayez de modifier l'extension en quelque chose qu'il accepte.\nTimleaf Installer ne se soucie pas des extensions de fichiers lors des installations via le net !\n\nSi vous n'arrivez pas à comprendre, copiez simplement vos fichiers sur votre carte SD et essayez\nl'option \"Installer à partir de la carte SD\" depuis le menu principal!"
             },
             "src": {
                 "title": "D'où voulez-vous installer ?",
@@ -111,7 +111,7 @@
         },
         "nca_verify": {
             "title": "Signature NCA invalide détectée!",
-            "desc": "Les logiciels incorrectement signés ne doivent être installés qu'à partir de\nsources dignes de confiance. Les fichiers contenant des repacks de cartouches et des DLC\nafficheront toujours cet avertissement. Vous pouvez désactiver cette vérification dans les paramètres de Tinleaf Installer.\n\nEtes-vous sûr de vouloir continuer l'installation ?",
+            "desc": "Les logiciels incorrectement signés ne doivent être installés qu'à partir de\nsources dignes de confiance. Les fichiers contenant des repacks de cartouches et des DLC\nafficheront toujours cet avertissement. Vous pouvez désactiver cette vérification dans les paramètres de Timleaf Installer.\n\nEtes-vous sûr de vouloir continuer l'installation ?",
             "opt1": "Oui, je comprends les risques",
             "error": "Le NCA demandé n'est pas correctement signé: "
         },
@@ -135,7 +135,7 @@
         "backup_failed": "Impossible de sauvegarder le fichier Patches.ini d'Hekate ! Installer quand même ?",
         "backup_failed_desc": "Si vous n'utilisez pas Hekate, vous pouvez ignorer cet avertissement.",
         "download_failed": "Impossible de télécharger les patchs de signature",
-        "download_failed_desc": "Vous avez peut-être fourni une source invalide dans les paramètres de l'installateur Tinleaf,\nou l'hôte est peut-être juste en panne en ce moment.",
+        "download_failed_desc": "Vous avez peut-être fourni une source invalide dans les paramètres de l'installateur Timleaf,\nou l'hôte est peut-être juste en panne en ce moment.",
         "version_text2": "Vos patchs de signature ont été mis à jour pour la version d'HOS ",
         "install_complete": "Installation complète !",
         "complete_desc": "Redémarrez votre console pour appliquer",
@@ -154,10 +154,10 @@
             "nca_verify": "Vérifier les signatures des NCA avant l'installation",
             "boost_mode": "Activer le  \"boost mode\" pendant l'installation",
             "ask_delete": "Demande de suppression des fichiers originaux après l'installation",
-            "auto_update": "Vérifier les mises à jour de l'installateur Tinleaf automatiquement",
+            "auto_update": "Vérifier les mises à jour de l'installateur Timleaf automatiquement",
             "sig_url": "Patchs de signatures URL: ",
             "language": "Langage: ",
-            "check_update": "Vérifiez les mises à jour de l'installateur Tinleaf",
+            "check_update": "Vérifiez les mises à jour de l'installateur Timleaf",
             "credits": "Crédits"
         },
         "nca_warn": {
@@ -168,28 +168,28 @@
         "sig_hint": "Entrez l'URL pour obtenir les patches de signature",
         "update": {
             "title": "Mise à jour disponible",
-            "desc0": "Tinleaf Installer ",
+            "desc0": "Timleaf Installer ",
             "desc1": " est disponible dès maintenant ! Prêt à mettre à jour ?",
             "opt0": "Mise à jour",
-            "top_info": "Mise à jour de l'installateur Tinleaf ",
-            "bot_info": "Téléchargement de l'installateur Tinleaf ",
-            "bot_info2": "Extraction de l'installateur Tinleaf ",
+            "top_info": "Mise à jour de l'installateur Timleaf ",
+            "bot_info": "Téléchargement de l'installateur Timleaf ",
+            "bot_info2": "Extraction de l'installateur Timleaf ",
             "complete": "Mise à jour complète !",
             "failed": "La mise à jour a échoué !",
             "end_desc": "Le logiciel sera maintenant fermé.",
             "title_check_fail": "Aucune mise à jour trouvée",
-            "desc_check_fail": "Vous êtes sur la dernière version de Tinleaf Installer !"
+            "desc_check_fail": "Vous êtes sur la dernière version de Timleaf Installer !"
         },
         "credits": {
             "title": "Merci aux personnes suivantes !",
             "desc": "- Adubbz"
         },
         "language": {
-            "title": "Sélectionnez la langue de Tinleaf Installer",
+            "title": "Sélectionnez la langue de Timleaf Installer",
             "desc": "Le logiciel sera fermé après avoir changé de langue. Appuyez sur B pour annuler.",
             "system_language": "Système"
         },
-        "title": "Modifiez les paramètres de Tinleaf Installler !",
+        "title": "Modifiez les paramètres de Timleaf Installler !",
         "buttons": "\ue0e0 Sélectionner/Modifier    \ue0e1 Annuler"
     },
     "common": {

@@ -13,7 +13,7 @@
 #include "util/config.hpp"
 #include "util/curl.hpp"
 #include "ui/MainApplication.hpp"
-#include "util/usb_comms_tinleaf.h"
+#include "util/usb_comms_timleaf.h"
 #include "util/json.hpp"
 #include "nx/usbhdd.h"
 
@@ -29,7 +29,7 @@ namespace inst::util {
         #ifdef __DEBUG__
             nxlinkStdio();
         #endif
-        tinleaf_usbCommsInitialize();
+        timleaf_usbCommsInitialize();
 
 		nx::hdd::init();
     }
@@ -37,7 +37,7 @@ namespace inst::util {
     void deinitApp () {
 		nx::hdd::exit();
         socketExit();
-        tinleaf_usbCommsExit();
+        timleaf_usbCommsExit();
     }
 
     void initInstallServices() {
@@ -301,7 +301,7 @@ namespace inst::util {
     
    std::vector<std::string> checkForAppUpdate () {
         try {
-            std::string jsonData = inst::curl::downloadToBuffer("https://api.github.com/repos/blawar/tinleaf/releases/latest", 0, 0, 1000L);
+            std::string jsonData = inst::curl::downloadToBuffer("https://api.github.com/repos/drizzt/timleaf/releases/latest", 0, 0, 1000L);
             if (jsonData.size() == 0) return {};
             nlohmann::json ourJson = nlohmann::json::parse(jsonData);
             if (ourJson["tag_name"].get<std::string>() != inst::config::appVersion) {

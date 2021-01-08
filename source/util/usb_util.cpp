@@ -21,7 +21,7 @@ SOFTWARE.
 */
 
 #include "util/usb_util.hpp"
-#include "util/usb_comms_tinleaf.h"
+#include "util/usb_comms_timleaf.h"
 
 #include "data/byte_buffer.hpp"
 #include "debug.h"
@@ -77,7 +77,7 @@ namespace tin::util
 
         while (sizeRemaining)
         {
-            tmpSizeRead = tinleaf_usbCommsRead(tmpBuf, sizeRemaining, timeout);
+            tmpSizeRead = timleaf_usbCommsRead(tmpBuf, sizeRemaining, timeout);
             if (tmpSizeRead == 0) return 0;
             tmpBuf += tmpSizeRead;
             sizeRemaining -= tmpSizeRead;
@@ -94,7 +94,7 @@ namespace tin::util
 
         while (cursize)
         {
-            tmpsize = tinleaf_usbCommsWrite(bufptr, cursize, timeout);
+            tmpsize = timleaf_usbCommsWrite(bufptr, cursize, timeout);
             if (tmpsize == 0) return 0;
             bufptr += tmpsize;
             cursize -= tmpsize;

@@ -3,7 +3,7 @@
 #include <vector>
 
 namespace inst::config {
-    static const std::string appDir = "sdmc:/switch/tinleaf";
+    static const std::string appDir = "sdmc:/switch/timleaf";
     static const std::string configPath = appDir + "/config.json";
     static const std::string appVersion = "1.4.4";
 

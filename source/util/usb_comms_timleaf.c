@@ -6,7 +6,7 @@
 #include "switch/services/fatal.h"
 #include "switch/services/usbds.h"
 #include "switch/runtime/hosversion.h"
-#include "util/usb_comms_tinleaf.h"
+#include "util/usb_comms_timleaf.h"
 #include <stdio.h>
 
 #define TOTAL_INTERFACES 4
@@ -29,13 +29,13 @@ static bool g_usbCommsErrorHandling = 0;
 
 static RwLock g_usbCommsLock;
 
-static Result _usbCommsInterfaceInit1x(u32 intf_ind, const tinleaf_UsbCommsInterfaceInfo *info);
-static Result _usbCommsInterfaceInit5x(u32 intf_ind, const tinleaf_UsbCommsInterfaceInfo *info);
-static Result _usbCommsInterfaceInit(u32 intf_ind, const tinleaf_UsbCommsInterfaceInfo *info);
+static Result _usbCommsInterfaceInit1x(u32 intf_ind, const timleaf_UsbCommsInterfaceInfo *info);
+static Result _usbCommsInterfaceInit5x(u32 intf_ind, const timleaf_UsbCommsInterfaceInfo *info);
+static Result _usbCommsInterfaceInit(u32 intf_ind, const timleaf_UsbCommsInterfaceInfo *info);
 
 static Result _usbCommsWrite(usbCommsInterface *interface, const void* buffer, size_t size, size_t *transferredSize, u64 timeout);
 
-static void _usbCommsUpdateInterfaceDescriptor(struct usb_interface_descriptor *desc, const tinleaf_UsbCommsInterfaceInfo *info) {
+static void _usbCommsUpdateInterfaceDescriptor(struct usb_interface_descriptor *desc, const timleaf_UsbCommsInterfaceInfo *info) {
     if (info != NULL) {
         desc->bInterfaceClass = info->bInterfaceClass;
         desc->bInterfaceSubClass = info->bInterfaceSubClass;
@@ -43,7 +43,7 @@ static void _usbCommsUpdateInterfaceDescriptor(struct usb_interface_descriptor *
     }
 }
 
-Result tinleaf_usbCommsInitializeEx(u32 num_interfaces, const tinleaf_UsbCommsInterfaceInfo *infos)
+Result timleaf_usbCommsInitializeEx(u32 num_interfaces, const timleaf_UsbCommsInterfaceInfo *infos)
 {
     Result rc = 0;
     rwlockWriteLock(&g_usbCommsLock);
@@ -150,15 +150,15 @@ Result tinleaf_usbCommsInitializeEx(u32 num_interfaces, const tinleaf_UsbCommsIn
     rwlockWriteUnlock(&g_usbCommsLock);
 
     if (R_FAILED(rc)) {
-        tinleaf_usbCommsExit();
+        timleaf_usbCommsExit();
     }
 
     return rc;
 }
 
-Result tinleaf_usbCommsInitialize(void)
+Result timleaf_usbCommsInitialize(void)
 {
-    return tinleaf_usbCommsInitializeEx(1, NULL);
+    return timleaf_usbCommsInitializeEx(1, NULL);
 }
 
 static void _usbCommsInterfaceFree(usbCommsInterface *interface)
@@ -189,7 +189,7 @@ static void _usbCommsInterfaceFree(usbCommsInterface *interface)
     rwlockWriteUnlock(&interface->lock);
 }
 
-void tinleaf_usbCommsExit(void)
+void timleaf_usbCommsExit(void)
 {
     u32 i;
 
@@ -207,7 +207,7 @@ void tinleaf_usbCommsExit(void)
     }
 }
 
-static Result _usbCommsInterfaceInit(u32 intf_ind, const tinleaf_UsbCommsInterfaceInfo *info)
+static Result _usbCommsInterfaceInit(u32 intf_ind, const timleaf_UsbCommsInterfaceInfo *info)
 {
     if (hosversionAtLeast(5,0,0)) {
         return _usbCommsInterfaceInit5x(intf_ind, info);
@@ -216,7 +216,7 @@ static Result _usbCommsInterfaceInit(u32 intf_ind, const tinleaf_UsbCommsInterfa
     }
 }
 
-static Result _usbCommsInterfaceInit5x(u32 intf_ind, const tinleaf_UsbCommsInterfaceInfo *info)
+static Result _usbCommsInterfaceInit5x(u32 intf_ind, const timleaf_UsbCommsInterfaceInfo *info)
 {
     Result rc = 0;
     usbCommsInterface *interface = &g_usbCommsInterfaces[intf_ind];
@@ -327,7 +327,7 @@ static Result _usbCommsInterfaceInit5x(u32 intf_ind, const tinleaf_UsbCommsInter
 }
 
 
-static Result _usbCommsInterfaceInit1x(u32 intf_ind, const tinleaf_UsbCommsInterfaceInfo *info)
+static Result _usbCommsInterfaceInit1x(u32 intf_ind, const timleaf_UsbCommsInterfaceInfo *info)
 {
     Result rc = 0;
     usbCommsInterface *interface = &g_usbCommsInterfaces[intf_ind];
@@ -393,7 +393,7 @@ static Result _usbCommsInterfaceInit1x(u32 intf_ind, const tinleaf_UsbCommsInter
     return rc;
 }
 
-void tinleaf_usbCommsSetErrorHandling(bool flag) {
+void timleaf_usbCommsSetErrorHandling(bool flag) {
     g_usbCommsErrorHandling = flag;
 }
 
@@ -539,7 +539,7 @@ static Result _usbCommsWrite(usbCommsInterface *interface, const void* buffer, s
     return rc;
 }
 
-size_t tinleaf_usbCommsReadEx(void* buffer, size_t size, u32 interface, u64 timeout)
+size_t timleaf_usbCommsReadEx(void* buffer, size_t size, u32 interface, u64 timeout)
 {
     size_t transferredSize=0;
     Result rc;
@@ -561,12 +561,12 @@ size_t tinleaf_usbCommsReadEx(void* buffer, size_t size, u32 interface, u64 time
     return 0;
 }
 
-size_t tinleaf_usbCommsRead(void* buffer, size_t size, u64 timeout)
+size_t timleaf_usbCommsRead(void* buffer, size_t size, u64 timeout)
 {
-    return tinleaf_usbCommsReadEx(buffer, size, 0, timeout);
+    return timleaf_usbCommsReadEx(buffer, size, 0, timeout);
 }
 
-size_t tinleaf_usbCommsWriteEx(const void* buffer, size_t size, u32 interface, u64 timeout)
+size_t timleaf_usbCommsWriteEx(const void* buffer, size_t size, u32 interface, u64 timeout)
 {
     size_t transferredSize=0;
     Result rc;
@@ -588,8 +588,8 @@ size_t tinleaf_usbCommsWriteEx(const void* buffer, size_t size, u32 interface, u
     return 0;
 }
 
-size_t tinleaf_usbCommsWrite(const void* buffer, size_t size, u64 timeout)
+size_t timleaf_usbCommsWrite(const void* buffer, size_t size, u64 timeout)
 {
-    return tinleaf_usbCommsWriteEx(buffer, size, 0, timeout);
+    return timleaf_usbCommsWriteEx(buffer, size, 0, timeout);
 }
 
