@@ -1,6 +1,6 @@
 [submodule "include/Plutonium"]
 	path = include/Plutonium
-	url = https://github.com/HookedBehemoth/Plutonium
+	url = https://github.com/drizzt/Plutonium.git
 [submodule "include/libusbhsfs"]
 	path = include/libusbhsfs
 	url = https://github.com/DarkMatterCore/libusbhsfs.git
